@@ -1,0 +1,490 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love! 🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Front Page */
+        .front-page {
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .character {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .character svg {
+            width: 100%;
+            height: 100%;
+            animation: jumpDance 2s infinite ease-in-out;
+        }
+
+        @keyframes jumpDance {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
+            75% { transform: translateY(-15px) rotate(3deg); }
+        }
+
+        .greeting {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .greeting span.red {
+            color: #ff1744;
+            font-style: italic;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-yes {
+            background: linear-gradient(45deg, #ff6b9d, #ff8fab);
+            color: white;
+        }
+
+        .btn-no {
+            background: linear-gradient(45deg, #ffa726, #ffcc02);
+            color: #333;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+
+        /* No Page */
+        .no-page {
+            text-align: center;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .sulking-character {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+        }
+
+        .sulking-character svg {
+            animation: sulk 2s infinite ease-in-out;
+        }
+
+        @keyframes sulk {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(5px) scale(0.95); }
+        }
+
+        .sulking-text {
+            font-size: 2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Gift Selection */
+        .gift-selection {
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+            max-width: 600px;
+        }
+
+        .gift-item {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gift-item:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .gift-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gift-title {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        /* White Rose Page */
+        .rose-page {
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .rose-img {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .rose-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rose-facts {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8em;
+            color: #c2185b;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* Music Page */
+        .music-page {
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .music-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: #e91e63;
+            margin-bottom: 30px;
+        }
+
+        .youtube-container {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            margin: 0 auto;
+        }
+
+        .youtube-container iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        /* Love Letter Page */
+        .letter-page {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+            background: rgba(255,255,255,0.9);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .letter-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: #d81b60;
+            margin-bottom: 30px;
+        }
+
+        .letter-content {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4em;
+            line-height: 1.8;
+            color: #333;
+            text-align: left;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 5px solid #e91e63;
+            margin-bottom: 30px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @media (max-width: 768px) {
+            .greeting {
+                font-size: 1.8em;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 200px;
+            }
+            
+            .gifts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Front Page -->
+    <div id="frontPage" class="container front-page">
+        <div class="character">
+            <svg viewBox="0 0 100 100">
+                <!-- Simple cute character -->
+                <circle cx="50" cy="30" r="20" fill="#ff6b9d"/>
+                <circle cx="42" cy="25" r="4" fill="white"/>
+                <circle cx="58" cy="25" r="4" fill="white"/>
+                <circle cx="42" cy="25" r="2" fill="black"/>
+                <circle cx="58" cy="25" r="2" fill="black"/>
+                <!-- Body -->
+                <path d="M40 50 Q50 60 60 50 L55 75 Q50 80 45 75 Z" fill="#ff8fab"/>
+                <!-- Arms -->
+                <path d="M38 55 Q30 60 35 70" stroke="#ff6b9d" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <path d="M62 55 Q70 60 65 70" stroke="#ff6b9d" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <!-- Legs -->
+                <path d="M45 75 L42 90 Q43 92 45 90" stroke="#e91e63" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <path d="M55 75 L58 90 Q57 92 55 90" stroke="#e91e63" stroke-width="5" stroke-linecap="round" fill="none"/>
+            </svg>
+        </div>
+        <div class="greeting">
+            Hello <span class="red">my love</span>, are you ready to check your gift? 🎁
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-yes" onclick="goToGifts()">
+                <i class="fas fa-heart"></i> Yes
+            </button>
+            <button class="btn btn-no" onclick="goToNoPage()">
+                <i class="fas fa-thumbs-down"></i> No
+            </button>
+        </div>
+    </div>
+
+    <!-- No Page -->
+    <div id="noPage" class="container no-page hidden">
+        <div class="sulking-character">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="30" r="20" fill="#ff6b9d"/>
+                <circle cx="42" cy="28" r="4" fill="white"/>
+                <circle cx="58" cy="28" r="4" fill="white"/>
+                <path d="M40 26 Q50 32 60 26" stroke="#666" stroke-width="2" fill="none"/>
+                <path d="M40 50 Q50 60 60 50 L55 75 Q50 80 45 75 Z" fill="#ff8fab"/>
+                <path d="M38 55 Q30 65 35 75" stroke="#ff6b9d" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <path d="M62 55 Q70 65 65 75" stroke="#ff6b9d" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <path d="M45 75 L42 90" stroke="#e91e63" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <path d="M55 75 L58 90" stroke="#e91e63" stroke-width="5" stroke-linecap="round" fill="none"/>
+            </svg>
+        </div>
+        <div class="sulking-text">Trust me, you will like it! 🥺</div>
+        <button class="btn btn-yes" onclick="goToFrontPage()">
+            <i class="fas fa-undo"></i> Return
+        </button>
+    </div>
+
+    <!-- Gift Selection Page -->
+    <div id="giftPage" class="container gift-selection hidden">
+        <h1 style="font-size: 2.5em; color: #e91e63; margin-bottom: 20px;">Choose your gift, my love! 💝</h1>
+        <div class="gifts-grid">
+            <div class="gift-item" onclick="goToRose()">
+                <img src="boquo.jpg">
+            </div>
+            <div class="gift-item" onclick="goToMusic()">
+                <img src="musicccc.jpg">
+            </div>
+            <div class="gift-item" onclick="goToLetter()">
+                <img src="letterrr.jpg">
+            </div>
+        </div>
+        <button class="btn btn-no" onclick="goToFrontPage()" style="margin-top: 20px;">
+            <i class="fas fa-home"></i> Back to Home
+        </button>
+    </div>
+
+    <!-- White Rose Page -->
+    <div id="rosePage" class="container rose-page hidden">
+        <div class="rose-img">
+            <img src="whiteroses.jpg">
+        </div>
+        <div class="rose-facts">
+            "YOUR FAVOURITE FLOWERSSS❤❤🌹 
+White roses symbolize purity, innocence, and new beginnings. 
+            They whisper of eternal love that remains untouched by time. 
+            Just like my love for you, forever pure and everlasting. 🌹"
+        </div>
+        <button class="btn btn-no" onclick="goToGifts()">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+    </div>
+
+  <!-- Music Page - SPOTIFY ONLY -->
+<div id="musicPage" class="container music-page hidden">
+    <div class="music-title">YOUR FAVOURITE SONG ❤❤😋</div>
+    
+    <div class="spotify-container" style="
+        max-width: 100%;
+        margin: 20px 0;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    ">
+        <!-- Spotify Preview Player -->
+        <iframe 
+            data-testid="embed-iframe" 
+            style="border-radius:12px; width:100%; height:352px;" 
+            src="https://open.spotify.com/embed/track/4VQH4VluDUOsOuDxccTeyN?utm_source=generator" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+        </iframe>
+</div>
+    <button class="btn btn-no" onclick="goToGifts()" style="margin-top: 20px;">
+        <i class="fas fa-arrow-left"></i> Back to Gifts
+    </button>
+</div>
+    </div>
+</div>
+
+    <!-- Love Letter Page -->
+    <div id="letterPage" class="container hidden">
+        <div class="letter-page">
+            <div class="letter-title">💌 A Love Letter & Birthday Wish 💌</div>
+            <div class="letter-content">
+                <p>My Dearest Love RENEEE,</p>
+                <br>
+                <p>Today, as you celebrate another beautiful year of life, my heart overflows with love and gratitude for you. You are my sunshine, my heartbeat, my everything. Every moment with you feels like a dream I never want to wake from.</p>
+                <br>
+                <p>Your smile lights up my darkest days, your laughter is my favorite melody, and your love is my greatest treasure. On this special day, I wish you endless happiness, boundless success, and a lifetime filled with all the love you deserve (which is infinite!).</p>
+                <br>
+                <p>Thank you for being you, for loving me, for making every day better just by being in it. Here's to many more birthdays together, hand in hand, heart to heart.</p>
+                <br>
+                <p>Forever yours,<br>💕 AAYANNNN😋😋 💕</p>
+            </div>
+            <button class="btn btn-yes" onclick="goToFrontPage()">
+                <i class="fas fa-home"></i> Back to Home
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.container').forEach(page => {
+                page.classList.add('hidden');
+            });
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        function goToFrontPage() {
+            showPage('frontPage');
+        }
+
+        function goToNoPage() {
+            showPage('noPage');
+        }
+
+        function goToGifts() {
+            showPage('giftPage');
+        }
+
+        function goToRose() {
+            showPage('rosePage');
+        }
+
+        function goToMusic() {
+            showPage('musicPage');
+        }
+
+        function goToLetter() {
+            showPage('letterPage');
+        }
+function playVideo(event) 
+{
+  const videoWrapper = event.currentTarget;
+  const iframe = document.getElementById('loveSong');
+
+  videoWrapper.style.display = 'none';
+  iframe.style.display = 'block';
+
+  // UPDATED VIDEO ID + Error 153 Fix
+  iframe.src = "https://www.youtube.com/embed/EAcccTxTLbE?autoplay=1&rel=0&modestbranding=1&playsinline=1";
+
+  iframe.style.animation = 'fadeIn 0.5s ease-in';
+}
+
+    </script>
+</body>
+</html>
